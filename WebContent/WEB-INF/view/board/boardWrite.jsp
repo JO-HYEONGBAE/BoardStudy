@@ -50,6 +50,18 @@
 			<td>
 				<table border ="1"> 
 					<tr>
+						<td width="120" align=center>
+						Type
+						</td>
+						<td>
+						<select name="boardType">
+							<c:forEach items="${type}" var="i">
+								<option value="${i.codeId}">${i.codeName}</option>
+							</c:forEach>
+						</select>
+						</td>
+					</tr>
+					<tr>
 						<td width="120" align="center">
 						Title
 						</td>
