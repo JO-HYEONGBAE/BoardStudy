@@ -9,16 +9,10 @@
 </head>
 <script type="text/javascript">
 	var num=${board.boardNum};
-	var type=${board.boardType};
+	var type="${board.boardType}";
 	$j(function(){
 		
 		$j("#updateActionBtn").click(function(){
-			console.log(JSON.stringify({
-				boardType:$j("#boardType").val(),
-				boardNum:$j("#boardNum").val(),
-				boardTitle:$j("#boardTitle").val(),
-				boardComment:$j("#boardComment").val()
-			}));
 			if(confirm("수정하시겠습니까")){
 				
 			$j.ajax({
@@ -85,6 +79,10 @@
 						Writer
 						</td>
 						<td>
+					<c:if test="${board.creator ne 'SYSTEM'}">	
+						${board.creator}
+						<input type="hidden" name="creator" value="${board.creator}">
+					</c:if>	
 						</td>
 					</tr>
 				</table>
