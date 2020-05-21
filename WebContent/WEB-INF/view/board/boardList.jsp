@@ -83,10 +83,20 @@ var le="${type}";
 <body>
 <table  align="center">
 	<tr>
+	<c:choose>
+	<c:when test="${empty cookie.id.name}">
 		<td align="left">
-			<a href="/board/boardLogin.do">Login</a>
-			<a href="/board/boardJoin.do">Join</a>
+			<a href="/user/userLogin.do">Login</a>
+			<a href="/user/userJoin.do">Join</a>
 		</td>
+	</c:when>
+	
+	<c:otherwise>
+		<td align="left">
+			${cookie.id.value}
+		</td>
+	</c:otherwise> 
+	</c:choose>
 		<td align="right">
 			total : ${totalCnt}
 		</td>
@@ -106,7 +116,7 @@ var le="${type}";
 					</td>
 				</tr>
 				<c:forEach items="${boardList}" var="list">
-					<tr data-type="${list.boardType }">
+					<tr>
 						<td align="center">
 							${list.com_CodeVo.codeName}
 						</td>
@@ -124,6 +134,9 @@ var le="${type}";
 	<tr>
 		<td align="right">
 			<a href ="/board/boardWrite.do">글쓰기</a>
+			<c:if test="${!empty cookie.id.name }">
+			<a href ="/user/Logout.do">로그아웃</a>
+			</c:if>
 		</td>
 	</tr>
 	<tr>
@@ -133,10 +146,6 @@ var le="${type}";
 		<c:forEach items="${type }" var="i">
 			<input type="checkbox" name=keyword class="chks" value="${i.codeId}">${i.codeName}
 		</c:forEach>
-		<!-- <input type="checkbox" name="keyword" value="a01">일반
-		<input type="checkbox" name="keyword" value="a02">Q&A
-		<input type="checkbox" name="keyword" value="a03">익명
-		<input type="checkbox" name="keyword" value="a04">자유 -->
 		</form>
 		<input type="button" id="searchBtn" value="조회">
 		</td>
