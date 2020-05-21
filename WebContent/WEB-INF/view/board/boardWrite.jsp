@@ -12,20 +12,20 @@
 		var num=0;
 		var chkArray=[];
 		var size=0;
+		var chk=1;
 
 	$j(document).ready(function(){
 		
 		$j("#submit").on("click",function(){
-			var chk=1;
 			console.log("카운트"+count);
 			for(var i=1;i<count;i++){
 				if($j(".remove"+i).val()==""){
 					if(i>=chk){
 						
-					$j(".remove"+chk).find(".type").attr({"name":"boardVo["+chk+"].boardType"});
-					$j(".remove"+chk).find(".title").attr({"name":"boardVo["+chk+"].boardTitle"});
-					$j(".remove"+chk).find(".comment").attr({"name":"boardVo["+chk+"].boardComment"});
-					$j(".remove"+chk).find(".creator").attr({"name":"boardVo["+chk+"].creator"});
+					$j(".remove"+i).find(".type").attr({"name":"boardVo["+chk+"].boardType"});
+					$j(".remove"+i).find(".title").attr({"name":"boardVo["+chk+"].boardTitle"});
+					$j(".remove"+i).find(".comment").attr({"name":"boardVo["+chk+"].boardComment"});
+					$j(".remove"+i).find(".creator").attr({"name":"boardVo["+chk+"].creator"});
 					console.log("인덱스"+i);
 					chk=chk+1;
 					}
