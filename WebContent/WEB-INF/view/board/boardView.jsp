@@ -10,11 +10,13 @@
 <script type="text/javascript">
 	$j(function(){
 		$j("#updateBtn").click(function(){
+				
 			$j("#AllRoundForm").attr({
 				"method":"get",
 				"action":"/board/boardUpdate.do"
 			});
 			$j("#AllRoundForm").submit();
+			
 		});
 		$j("#deleteBtn").click(function(){
 			console.log(JSON.stringify({
@@ -82,6 +84,9 @@
 					Writer
 					</td>
 					<td>
+				<c:if test="${board.creator ne 'SYSTEM'}">
+						${board.creator }
+				</c:if>
 					</td>
 				</tr>
 			</table>
